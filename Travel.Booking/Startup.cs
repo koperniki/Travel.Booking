@@ -34,7 +34,7 @@ namespace Travel.Booking
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Travel.Booking", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Travel.Booking", Version = "v1", });
             });
             services.AddSingleton<BookingRepository>();
             services.AddSingleton<BookingService>();
@@ -48,11 +48,13 @@ namespace Travel.Booking
                 app.UseDeveloperExceptionPage();
                
             }
-            app.UseSwagger();
+
+            app.UseSwagger(c => c.RouteTemplate = "/bookingapi/swagger/v1/swagger.json");
+      
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/bookingapi/swagger/v1/swagger.json", "Travel.Booking v1");
-                c.RoutePrefix = "bookingapi";
+                c.SwaggerEndpoint("/bookingapi/swagger/v1/swagger.json", "Travel.Booking v1"); 
+                
 
             });
             app.UseRouting();
