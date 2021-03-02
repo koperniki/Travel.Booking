@@ -47,7 +47,11 @@ namespace Travel.Booking
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Travel.Booking v1"));
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Travel.Booking v1");
+                    c.RoutePrefix = "bookingapi";
+                });
             }
 
             app.UseRouting();
