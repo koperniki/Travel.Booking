@@ -50,7 +50,7 @@ namespace Travel.Booking
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Travel.Booking v1");
-                    c.RoutePrefix = "bookingapi";
+                    c.RoutePrefix = "bookingapi/";
                 });
             }
 
