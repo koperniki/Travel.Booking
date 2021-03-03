@@ -27,6 +27,14 @@ namespace Travel.Booking.Controllers
             return new OkObjectResult(user);
         }
 
+        [HttpGet("all")]
+        public async Task<IActionResult> Get()
+        {
+
+            var users = _service.GetAll();
+            return new OkObjectResult(users);
+        }
+
         [HttpGet("find")]
         public async Task<IActionResult> Find(string code)
         {

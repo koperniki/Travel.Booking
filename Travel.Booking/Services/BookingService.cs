@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Travel.Booking.Dto;
@@ -72,6 +73,11 @@ namespace Travel.Booking.Services
             user.AlcoOther = dto.AlcoOther;
 
             _repo.Update(user);
+        }
+
+        public List<User> GetAll()
+        {
+            return _repo.Get(x => true).ToList();
         }
     }
 }
